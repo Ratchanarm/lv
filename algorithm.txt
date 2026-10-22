@@ -1,0 +1,72 @@
+Algorithm for Compiler Design Lab
+Aim: To develop a compiler front end using LEX and YACC to generate three-address code for looping and assignment statements, optimize the intermediate code using code motion, and develop a back end to generate target code.
+Part (a): LEX specification to identify tokens
+Algorithm:
+1. Start the lexical analyzer.
+2. Read the source program character by character.
+3. Identify keywords such as while.
+4. Identify identifiers such as m, n, r, s, and t.
+5. Identify numeric constants such as 4, 16, and 5.
+6. Identify arithmetic operators, relational operators, assignment operators, and delimiters.
+7. Return the corresponding tokens to the YACC parser.
+8. Display invalid tokens if any are encountered.
+9. Stop.
+Part (b): YACC specification for syntax checking
+Algorithm:
+1. Start the syntax analyzer.
+2. Receive tokens from the LEX analyzer.
+3. Define grammar rules for the while statement, arithmetic expressions, and assignment statements.
+4. Check whether the loop condition is enclosed in parentheses.
+5. Verify that the loop body is enclosed in braces.
+6. Check the syntax of each assignment statement and expression.
+7. If the input follows the grammar, report that the syntax is correct.
+8. Otherwise, display a syntax error.
+9. Stop.
+Part (c): Syntax-directed translation to generate three-address code
+Algorithm:
+1. Start the intermediate-code generator.
+2. Parse the input source program using YACC.
+3. Generate temporary variables for intermediate arithmetic results.
+4. Translate multiplication and division operations into three-address instructions.
+5. Translate addition and subtraction operations into three-address instructions, respecting operator precedence.
+6. Generate labels for the beginning of the loop and its exit.
+7. Generate conditional and unconditional jump instructions for loop control.
+8. Generate assignment instructions for variables in the loop body.
+9. Display the generated three-address code.
+10. Stop.
+Part (d): Optimization using code motion
+Algorithm:
+1. Read the three-address code generated in Part (c).
+2. Identify the loop boundaries and instructions inside the loop.
+3. Identify constant arithmetic expressions and evaluate them using constant folding.
+4. Determine which computations are loop-invariant.
+5. Check whether the operands of each candidate expression remain unchanged during loop execution.
+6. Move safe loop-invariant computations before the loop.
+7. Preserve the order of dependent instructions.
+8. Display the optimized three-address code.
+9. Stop.
+Part (e): Target-code generation
+Algorithm:
+1. Read the optimized three-address code from Part (d).
+2. Examine each intermediate instruction.
+3. Translate assignments into data-movement instructions.
+4. Translate arithmetic operations into corresponding target instructions such as ADD, SUB, MUL, and DIV.
+5. Translate relational conditions into comparison instructions.
+6. Generate conditional jump instructions for loop control.
+7. Generate unconditional jumps and labels.
+8. Display the generated target code.
+9. Stop.
+Part (f): Integration and verification
+Algorithm:
+1. Start the integrated compiler.
+2. Read the input source program.
+3. Invoke the LEX module to identify tokens.
+4. Pass the tokens to the YACC module for syntax checking.
+5. If the syntax is valid, generate three-address code.
+6. Pass the intermediate code to the optimization module.
+7. Apply constant folding and code-motion optimization.
+8. Pass the optimized code to the target-code generator.
+9. Display the tokens, syntax-validation result, intermediate code, optimized code, and target code.
+10. Test the integrated compiler using the given sample program.
+11. Verify that each module produces the expected output.
+12. Stop.
